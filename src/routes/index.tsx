@@ -35,18 +35,20 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <main className="relative">
-      <Suspense fallback={<div className="fixed inset-0 -z-10 bg-black" />}>
+    <>
+      <Suspense fallback={<div className="fixed inset-0 z-0 bg-black" />}>
         <SceneBackground />
       </Suspense>
-      <Nav />
-      <Hero />
-      <Story />
-      <Menu />
-      <Events />
-      <Locations />
-      <Footer />
-      <ChatWidget />
-    </main>
+      <main className="relative z-10">
+        <Nav />
+        <Hero />
+        <Story />
+        <Menu />
+        <Events />
+        <Locations />
+        <Footer />
+        <ChatWidget />
+      </main>
+    </>
   );
 }
