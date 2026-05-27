@@ -1,29 +1,52 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense } from "react";
+import Nav from "@/components/site/Nav";
+import ChatWidget from "@/components/site/ChatWidget";
+import { Hero, Story, Menu, Events, Locations, Footer } from "@/components/site/Sections";
+
+const SceneBackground = lazy(() => import("@/components/scene/SceneBackground"));
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Ukusa Rhino — Hyderabad's First Motorsport Cafe" },
+      {
+        name: "description",
+        content:
+          "Coffee, food and high-octane culture. Founded by national racing champion Sandeep Nadimpalli. Jubilee Hills & HITEC City, Hyderabad.",
+      },
+      { property: "og:title", content: "Ukusa Rhino — Where the Race Ends, the Flavor Begins" },
+      {
+        property: "og:description",
+        content: "Hyderabad's first motorsport cafe. Coffee. Food. Speed.",
+      },
+    ],
+    links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Racing+Sans+One&family=Inter:wght@300;400;500;600;700&display=swap",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative">
+      <Suspense fallback={<div className="fixed inset-0 -z-10 bg-black" />}>
+        <SceneBackground />
+      </Suspense>
+      <Nav />
+      <Hero />
+      <Story />
+      <Menu />
+      <Events />
+      <Locations />
+      <Footer />
+      <ChatWidget />
+    </main>
   );
 }
