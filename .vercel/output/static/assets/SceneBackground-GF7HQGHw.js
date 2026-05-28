@@ -1,0 +1,1 @@
+import{j as e}from"./index-CIWY7YH_.js";const s="/assets/webback-AD5WqYlj.png";function t(){return e.jsxs("div",{className:"pointer-events-none fixed inset-0 z-0",children:[e.jsx("img",{src:s,alt:"",className:"absolute inset-0 h-full w-full object-cover"}),e.jsx("div",{className:"absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-black/75"})]})}export{t as default};
